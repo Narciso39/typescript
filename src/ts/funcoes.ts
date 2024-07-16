@@ -89,3 +89,58 @@ function modernGreeting(name: string, greet?: string) {
 
 // console.log(modernGreeting('Narciso', 'tenente'));
 
+// parametro default
+
+function somaDefault(n1: number, n2?: number): number {
+
+    if(!n2) {
+        n2 = 10;
+    }
+    return n1 + n2; 
+}
+
+
+// console.log(somaDefault(10));
+
+// tipo unknown
+// ele não deixa algo ser executado se não tiver uma validação de tipo
+
+function daSomething(x: unknown) {
+    if (Array.isArray(x)) {
+        console.log(x[0]);
+    } else if (typeof x === "number") {
+        console.log("x eh um numero");
+    } else if (typeof x === "string") {
+        console.log("x eh uma string");
+    } else if (typeof x === "boolean") {
+        console.log("x eh um booleano");
+    }
+}
+
+// daSomething("x");
+
+// tipo never
+
+function showErrorMessage(msg: string): never {
+    throw new Error(msg);
+}
+
+// showErrorMessage("algum erro");
+
+// rest parameters
+
+function sumAll(...n: number[]): number {
+    return n.reduce((number, sum) => sum + number);
+}
+
+// console.log(sumAll(10, 20, 30, 40, 50));
+
+// destructuring 
+
+function showProductDetails({name, price}: {name: string, price: number}): string {
+    return `O nome do produto é ${name} e ele custa R$${price}`;
+}
+
+const shirt = {name: "camisa", price: 49.99};
+
+// console.log(showProductDetails(shirt));

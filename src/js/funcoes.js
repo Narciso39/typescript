@@ -41,3 +41,33 @@ function modernGreeting(name, greet) {
         return `Olá, ${name}! Tudo bem?`;
     }
 }
+function somaDefault(n1, n2) {
+    if (!n2) {
+        n2 = 10;
+    }
+    return n1 + n2;
+}
+function daSomething(x) {
+    if (Array.isArray(x)) {
+        console.log(x[0]);
+    }
+    else if (typeof x === "number") {
+        console.log("x eh um numero");
+    }
+    else if (typeof x === "string") {
+        console.log("x eh uma string");
+    }
+    else if (typeof x === "boolean") {
+        console.log("x eh um booleano");
+    }
+}
+function showErrorMessage(msg) {
+    throw new Error(msg);
+}
+function sumAll(...n) {
+    return n.reduce((number, sum) => sum + number);
+}
+function showProductDetails({ name, price }) {
+    return `O nome do produto é ${name} e ele custa R$${price}`;
+}
+const shirt = { name: "camisa", price: 49.99 };
