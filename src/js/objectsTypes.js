@@ -35,3 +35,27 @@ let localizacao = {
     y: 20,
     z: 30
 };
+const heroi = {
+    name: 'Batman',
+    age: 45
+};
+const jhonWick = {
+    name: 'Jhon wick',
+    age: 50,
+    superpowers: ['terno', 'arma', 'oculos']
+};
+const sdEv = {
+    name: 'Narciso',
+    number: 339,
+    typer: 'fuzil',
+    caliber: 762
+};
+const myArray = ['Maçã', 'Laranja', 'Banana'];
+myArray.forEach((item) => {
+});
+const myNumberArray = [1, 2, 3, 4, 5];
+const anotherUser = ['luis', 40];
+function showNumber(numbers) {
+    console.log(numbers[0]);
+    console.log(numbers[1]);
+}

@@ -80,3 +80,87 @@ let localizacao: Coordenadas = {
 };
 
 // localizacao['w'] = 40; // possível, pois o index é genérico
+
+// extending types
+
+interface Human {
+    name: string
+    age: number
+}
+
+interface SupeHuman extends Human {
+    superpowers: string[]
+}
+
+const heroi: Human = {
+    name: 'Batman',
+    age: 45
+}
+
+// console.log(heroi);
+ 
+
+const jhonWick: SupeHuman = {
+    name: 'Jhon wick',
+    age: 50,
+    superpowers: ['terno', 'arma', 'oculos']
+}
+
+// console.log(jhonWick);
+
+
+
+// intersection types
+
+interface Character {
+    name: string
+    number: number
+}
+
+interface Gun {
+    typer: string
+    caliber: number
+}
+
+type HumanWithGun = Character & Gun;
+
+const sdEv: HumanWithGun = {
+    name: 'Narciso',
+    number: 339,
+    typer: 'fuzil',
+    caliber: 762
+}
+
+// console.log(sdEv);
+
+// ReadOnlyArray -- sem modificação direto
+
+const myArray: ReadonlyArray<string> = ['Maçã', 'Laranja', 'Banana'];
+
+myArray.forEach((item) => {
+   // console.log(`fruta: ${item}`);
+});
+
+
+
+// tuplas arrays a quantidade de itens não pode ser modificada
+
+type fiveNumber = [number, number, number, number, number]
+
+const myNumberArray: fiveNumber = [1, 2, 3, 4, 5];
+
+type nameAndAge = [string, number]
+
+const anotherUser: nameAndAge = ['luis', 40];
+
+
+
+// tupla com readonly (não pode ser modificada)
+
+
+function showNumber(numbers: readonly [number, number]) {
+    console.log(numbers[0]);
+    console.log(numbers[1]);
+}
+
+// showNumber([1, 2]);
