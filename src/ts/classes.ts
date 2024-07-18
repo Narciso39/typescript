@@ -214,6 +214,211 @@ class BlogPost implements ShowTitle {
 
 const myPost = new BlogPost("hello world");
 
-// console.log(myPost.itemTitle());
+// console.log(myPost.itemTitle()); 
 
 
+// override de metodos = quer usar o mesmo nome na classe filha
+
+class Base {
+    someMethod() {
+        console.log('alguma coisa');
+    }
+}
+
+class Nova extends Base {
+    someMethod() {
+        console.log('testando outra coisa');
+    }
+}
+
+const meuObjeto = new Nova();
+
+// meuObjeto.someMethod();
+
+
+// visibilidade 
+// public = pode ser acessado em qualquer lugar
+// protected = acessivel somente em subclasses da classe do metodo, para acessar uma propriedade precisamos de um método
+// private = apenas a classe que declarou o método pode utilizar
+
+
+// public
+
+class V {
+    public x = 10
+}
+
+class P extends V {
+
+}
+
+const vInstance = new V();
+
+const pInstance = new P();
+
+// console.log(pInstance.x);
+
+
+// protected 
+
+class Protegida {
+    protected x = 20
+
+    protected protectedMethod() {
+        console.log('esse é um método protected');
+    }
+}
+
+class Sub extends Protegida {
+
+    showX() {
+        console.log('x:' + this.x)
+    }
+
+    showProtectedMethod() {
+        this.protectedMethod()
+    }
+}
+
+const subInstance = new Sub();
+
+// console.log(subInstance.showX());
+
+// subInstance.showProtectedMethod(); //acessando um método protected
+
+
+// private 
+
+class PrivateClass {
+    private name = 'Private'
+
+    showName() {
+        return this.name;
+    }
+
+    private privateMethod() {
+        console.log('método privado');
+    }
+
+    showPrivateMethod() {
+        this.privateMethod()
+    }
+}
+
+const classePrivada = new PrivateClass;
+
+// console.log(classePrivada.showName());
+
+// classePrivada.showPrivateMethod();
+
+
+// static members = permite acesso a propriedade ou o método sem ter que criar um objeto
+
+class StaticMembers {
+    static prop = 'teste static'
+
+    static staticMethod() {
+        console.log('esse é um método estático');
+    }
+}
+
+
+// console.log(StaticMembers.prop);
+// StaticMembers.staticMethod();
+
+// generic class
+
+class Item<T, U> {
+    
+    first 
+    second
+
+    constructor(first: T, second: U) {
+        this.first = first
+        this.second = second
+    }
+
+    get showFirst() {
+        return `O first é: ${this.first}`;
+    }
+}
+
+const newItem = new Item('caixa', 'fita');
+
+// console.log(newItem);
+
+// console.log(newItem.showFirst);
+
+
+
+
+
+// parameters properties 
+
+class ParametersProperties {
+
+    constructor(public name: string, private qty: number, private price: number) {
+        this.name = name
+        this.qty = qty
+        this.price = price
+    }
+
+    get showQty() {
+        return `a quantidade total é: ${this.qty}`;
+    }
+
+    get showPrice() {
+        return `o preço é: ${this.price}`;
+    }
+}
+
+const produto = new ParametersProperties('camisa', 20, 19.99);
+
+// console.log(produto.name);
+// console.log(produto.showPrice);
+// console.log(produto.showQty);
+
+
+// class expressions
+
+
+const myClass = class<T> {
+    name 
+
+    constructor(name: T) {
+        this.name = name
+    }
+}
+
+const pessoa = new myClass('felipe');
+
+// console.log(pessoa);
+
+
+// abstract class 
+
+
+abstract class AbstractClass {
+    
+    abstract showName(): void 
+}
+
+class AbstractExemplo extends AbstractClass {
+    name: string
+
+    constructor(name: string) {
+        super()
+        this.name = name
+    }
+
+    showName(): void {
+        console.log(`o nome é ${this.name}`);
+    }
+}
+
+const newAbstract = new AbstractExemplo('felipe');
+
+// newAbstract.showName();
+
+
+// relações entre classe

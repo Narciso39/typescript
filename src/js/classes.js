@@ -89,3 +89,106 @@ class BlogPost {
     }
 }
 const myPost = new BlogPost("hello world");
+class Base {
+    someMethod() {
+        console.log('alguma coisa');
+    }
+}
+class Nova extends Base {
+    someMethod() {
+        console.log('testando outra coisa');
+    }
+}
+const meuObjeto = new Nova();
+class V {
+    constructor() {
+        this.x = 10;
+    }
+}
+class P extends V {
+}
+const vInstance = new V();
+const pInstance = new P();
+class Protegida {
+    constructor() {
+        this.x = 20;
+    }
+    protectedMethod() {
+        console.log('esse é um método protected');
+    }
+}
+class Sub extends Protegida {
+    showX() {
+        console.log('x:' + this.x);
+    }
+    showProtectedMethod() {
+        this.protectedMethod();
+    }
+}
+const subInstance = new Sub();
+class PrivateClass {
+    constructor() {
+        this.name = 'Private';
+    }
+    showName() {
+        return this.name;
+    }
+    privateMethod() {
+        console.log('método privado');
+    }
+    showPrivateMethod() {
+        this.privateMethod();
+    }
+}
+const classePrivada = new PrivateClass;
+class StaticMembers {
+    static staticMethod() {
+        console.log('esse é um método estático');
+    }
+}
+StaticMembers.prop = 'teste static';
+class Item {
+    constructor(first, second) {
+        this.first = first;
+        this.second = second;
+    }
+    get showFirst() {
+        return `O first é: ${this.first}`;
+    }
+}
+const newItem = new Item('caixa', 'fita');
+class ParametersProperties {
+    constructor(name, qty, price) {
+        this.name = name;
+        this.qty = qty;
+        this.price = price;
+        this.name = name;
+        this.qty = qty;
+        this.price = price;
+    }
+    get showQty() {
+        return `a quantidade total é: ${this.qty}`;
+    }
+    get showPrice() {
+        return `o preço é: ${this.price}`;
+    }
+}
+const produto = new ParametersProperties('camisa', 20, 19.99);
+const myClass = class {
+    constructor(name) {
+        this.name = name;
+    }
+};
+const pessoa = new myClass('felipe');
+class AbstractClass {
+}
+class AbstractExemplo extends AbstractClass {
+    constructor(name) {
+        super();
+        this.name = name;
+    }
+    showName() {
+        console.log(`o nome é ${this.name}`);
+    }
+}
+const newAbstract = new AbstractExemplo('felipe');
